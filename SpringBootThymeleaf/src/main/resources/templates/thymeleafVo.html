@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<h1 th:text="${member.mno}"></h1>
+	<h1 th:text="${member.mid}"></h1>
+	<h1 th:text="${member.mpw}"></h1>
+	<h1 th:text="${member.mname}"></h1>
+	<h1 th:text="${member.regdate}"></h1>
+	
+	<hr>
+	 * utext는 문자열이 아니라 HTML 자체를 출력하는데 사용할 수 있다. 
+	<div th:utext='${"<h3>" + member.mname + "</h3>"}'/>
+	<div th:text = '${"<h3>" + member.mname + "</h3>"}' />
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<table border = "1">
+		<tr>
+			<td>INDEX</td>
+			<td>SIZE</td>
+			<td>EVEN/ODD</td>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		
+		<!-- #dates.format()은 Thymeleaf의 보조 객체로 날짜 처리에 유용하게 사용된다. -->
+				
+		<!--  <tr th:each="member : ${memberList}"> -->
+		<tr th:each="member, iterState : ${memberList}">
+			<td th:text="${iterState.index}"></td>
+			<td th:text="${iterState.size}"></td>
+			<td th:text="${iterState.odd +' ' + iterState.even}"></td>
+			<td th:text="${member.mid}"></td>
+			<td th:text="${member.mname}"></td>
+			<td th:text="${#dates.format(member.regdate, 'yyyy-mm-dd')}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

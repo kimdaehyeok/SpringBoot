@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+
+<!-- th:inline = "javascript"를 지정한 코드에서는 자바스크립트 문자열로 제대로 생성되지만-->
+<!-- 그렇지 않은 경우에는 변수처럼 선언되는 것을 볼 수 있다. -->
+	<script th:inline="javascript">
+		// result = "Result" 형태로 문자열이 입력되었다.
+		var result = [[${result}]];
+	</script>
+	
+	<script>
+		// result = Result로 변수처럼 입력되었다. 
+		var result = [[${result}]]
+	</script>
+
+	<br/>
+	<hr/>
+	<br/>
+	
+	<!-- Thymeleaf의 inline의 기본은 text로 지정되므로, 일반 태그를 작성할 때도 사용할 수 있다. -->
+	<table border = "1" th:inline="text">
+		<tr>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each = "member : ${memberList}">
+			<td>[[${member.mid}]]</td>
+			<td>[[${member.mname}]]</td>
+			<td>[[${member.regdate}]]</td>
+		</tr>
+	</table>
+	
+	<br/>
+	<hr/>
+	<br/>
+	
+	<table border = "1">
+		<tr>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each = "member : ${memberList}">
+			<td th:text="${member.mid}"></td>
+			<td th:text="${member.mname}"></td>
+			<td th:text="${#dates.format(member.regdate,'yyyy-mm-dd')}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

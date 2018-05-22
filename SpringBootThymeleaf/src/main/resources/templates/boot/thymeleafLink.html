@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<ul>
+		<!-- http로 시작하는 절대경로를 사용. -->
+		<li><a th:href="@{http://localhost:8080/thymeleaf/thymeleafList}">Link1</a></li>
+		
+		<!-- 현재 실행되는 컨텍스트의 경로가 반영된다. -->
+		<!-- 만일 컨텍스트 경로가 / 라면 /thymeleaflist 이다. -->
+		<!-- 만일 컨텍스트 경로가 /boot 라면 /boot/thymeleaflist 이다. -->
+		<li><a th:href="@{/thymeleafList}">Link2</a></li>
+		
+		<!-- /thymeleafList 형태가 된다. -->
+		<li><a th:href="@{~/thymeleafList}">Link3</a></li>
+
+		<!-- 파라미터를 전달할 경우이다. -->
+		<li><a th:href="@{/thymeleafList(param1 = 'aaa', param2 = 'bbb')}">Link4</a></li>
+	</ul>
+</body>
+
+</html>
