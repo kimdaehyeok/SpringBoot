@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		<label>UID</label>
+		 <input type="text" name="uid" th:value="${member.uid}" />
+	</p>
+
+	<p>
+		<label>UPW</label> 
+		<input type="text" name="upw" th:value="${member.upw}" />
+	</p>
+
+	<p>
+		<label>UNAME</label> 
+		<input type="text" name="uname" th:value="${member.uname}" />
+	</p>
+	
+	<input type="text" name="model1" th:value="${msg}" />
+	<input type="text" name="model2" th:value="${personSample.name}" />
+	<input type="text" name="model3" th:value="${personSample.phone}" />
+</body>
+</html>
