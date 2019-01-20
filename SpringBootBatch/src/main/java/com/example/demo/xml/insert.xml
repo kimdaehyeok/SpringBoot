@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.xml">
+
+	<insert id="insertPay2" parameterType="com.example.demo.reader.Pay">
+		insert into pay2(amount, tx_name, tx_date_time) values (#{amount}, #{txName}, #{txDateTime})
+	</insert>
+	
+</mapper>
